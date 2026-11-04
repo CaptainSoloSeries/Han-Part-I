@@ -131,10 +131,15 @@
    ===================================================================== */
 const BOOK_TITLE    = "Captain Solo Series";   // shown in the chapter menu
 const CHAPTER_COUNT = 40;                      // how many chapters you have
-const CHAPTER_FOLDER = "chapters/";            // folder in your repo holding the PDFs
+const CHAPTER_FOLDER = "";            
 // Files are expected to be named ch01.pdf, ch02.pdf ... ch40.pdf.
 // To use different names, edit the chapterFile() function below.
-const chapterFile = n => CHAPTER_FOLDER + "ch" + String(n).padStart(2, "0") + ".pdf";
+const FILE_NAMES = {
+  1: "CH 1.pdf",
+  2: "Ch 2.pdf",
+  // ...one line per chapter, copied exactly as they appear in GitHub
+};
+const chapterFile = n => encodeURI(CHAPTER_FOLDER + FILE_NAMES[n]);
 
 // Optional: give chapters real titles. Any you skip show as "Chapter N".
 const CHAPTER_TITLES = {
